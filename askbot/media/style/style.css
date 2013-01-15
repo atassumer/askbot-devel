@@ -251,7 +251,6 @@ body.user-messages {
   width: 960px;
   margin: auto;
   position: relative;
-  overflow: auto;
 }
 #logo img {
   padding: 5px 0px 5px 0px;
