@@ -1,18 +1,18 @@
 <!-- template header.html -->
 {% import "macros.html" as macros %}
-<div 
-    id="header"
-    class="{% if settings.SHOW_LOGO %}with-logo{% else %}without-logo{% endif %}"
->
-    <div class="content-wrapper">
+<div id="header" class="{% if settings.SHOW_LOGO %}with-logo{% else %}without-logo{% endif %}">
+    <div class="container-fluid">
         <div id="userToolsNav">
-            {% include "widgets/user_navigation.html" %}
+        	<a class="brand" href="/questions/">
+				<i class="icon-comment icon-white"></i> Elorus Q&A forum
+			</a>
+			{% include "widgets/meta_nav.html" %}
         </div>
         {% if settings.SHOW_LOGO %}
             {% include "widgets/logo.html" %}
         {% endif %}
         <div id="metaNav">
-            {% include "widgets/meta_nav.html" %}
+            {% include "widgets/user_navigation.html" %}
         </div>
         <div class="clean"></div>
     </div>
