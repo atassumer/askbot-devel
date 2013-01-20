@@ -4,7 +4,9 @@ import re
 from django import forms
 from askbot import const
 from askbot.const import message_keys
+from askbot.models.tag import Tag
 from django.core.exceptions import PermissionDenied
+from django.forms.models import ModelMultipleChoiceField
 from django.forms.util import ErrorList
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy, string_concat
@@ -904,7 +906,8 @@ class AskForm(PostAsSomeoneForm, PostPrivatelyForm):
     settings forbids anonymous asking
     """
     title = TitleField()
-    tags = TagNamesField()
+    tags = ModelMultipleChoiceField(Tag.objects.filter(status=1))
+    #tags = TagNamesField()
     wiki = WikiField()
     group_id = forms.IntegerField(required = False, widget = forms.HiddenInput)
     ask_anonymously = forms.BooleanField(
@@ -936,7 +939,9 @@ class AskForm(PostAsSomeoneForm, PostPrivatelyForm):
         if askbot_settings.ALLOW_ASK_ANONYMOUSLY is False:
             self.cleaned_data['ask_anonymously'] = False
         return self.cleaned_data['ask_anonymously']
-
+    
+    def clean_tags(self):
+        return  " ".join([tag.name for tag in self.cleaned_data['tags']])
 
 ASK_BY_EMAIL_SUBJECT_HELP = _(
     'Subject line is expected in the format: '
