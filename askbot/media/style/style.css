@@ -431,14 +431,12 @@ body.user-messages {
 }
 #homeButton {
   border-right: 1px solid rgb(228, 228, 228);
-  background: -6px -36px url(../images/sprites.png) no-repeat;
+  background: url(../images/elorus-globe-blue.png) no-repeat left center;
+  background-size: 43px 43px;
   height: 55px;
-  width: 43px;
+  width: 53px;
   display: block;
   float: left;
-}
-#homeButton:hover {
-  background: -51px -36px url(../images/sprites.png) no-repeat;
 }
 .scope-selector {
   display: block;
