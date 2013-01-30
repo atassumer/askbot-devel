@@ -29,7 +29,7 @@ body {
   line-height: 150%;
   margin: 0;
   padding: 0;
-  color: #666;
+  color: #333;
   font-family: Arial;
 }
 div {
@@ -186,6 +186,12 @@ body.user-messages {
 .center {
   margin: 0 auto;
   padding: 0;
+}
+.add-top {
+	margin-top: 20px;
+}
+.text-right {
+	text-align: right;
 }
 /* ----- Notify message bar , check blocks/system_messages.html ----- */
 .notify {
@@ -1242,7 +1248,6 @@ ul#searchTags {
 /* ----- Question list Paginator , check main_content/pager.html and macros/utils_macros.html----- */
 .evenMore {
   font-size: 13px;
-  color: #707070;
   padding: 15px 0px 10px 0px;
   clear: both;
 }
@@ -1537,7 +1542,6 @@ ul#related-tags li {
   font-weight: normal;
   float: left;
   font-size: 16px;
-  color: #5d5d5d;
 }
 .badges .tag-number {
   float: none;
@@ -3423,12 +3427,9 @@ ins {
 }
 /* ----- Footer links , check blocks/footer.html----- */
 #ground {
-  width: 100%;
-  clear: both;
-  border-top: 1px solid #ddd;
-  padding: 16px 0 0 0;
-  margin-top: 30px !important;
-  font-size: 13px;
+	border-top: 1px solid #DDD;
+	padding: 5px 5px 0 5px;
+	font-size: 14px;
 }
 #ground p {
   margin-bottom: 0;
