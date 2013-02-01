@@ -250,7 +250,7 @@ body.user-messages {
   margin-top: 0px;
   background: #08C;
   background: #08C;
-  z-index: 100;
+  z-index: 10002;
 background: -moz-linear-gradient(top, #08C 0%, #005E9D 100%);
 background: -webkit-gradient(linear, 0 0, 0 100%, from(#08C), to(#005E9D));
 background: -webkit-linear-gradient(top, #08C 0%,#005E9D 100%);
@@ -530,7 +530,7 @@ display: inline-block;
   background: #FFF;
   border: 0px;
   color: #484848;
-  font-family: 'Ubuntu', sans-seriff;
+  font-family: 'Ubuntu', sans-serif;
   width: 100%;
   margin: 8px 0 6px 0;
   padding: 0;
@@ -544,7 +544,7 @@ display: inline-block;
   height: 30px;
   line-height: 20px;
   font-size: 20px;
-  font-family: 'Ubuntu', sans-seriff;
+  font-family: 'Ubuntu', sans-serif;
   
 }
 .search-drop-menu {
@@ -728,7 +728,7 @@ body.anon .search-drop-menu {
   color: #333;
   padding-right: 10px;
   margin-bottom: 10px;
-  font-family: 'Open Sans Condensed', Arial, sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   width: 190px;
 }
 .box h3 {
@@ -2702,6 +2702,7 @@ ul#related-tags li {
 .meta h2,
 .user-profile-edit-page h2 {
   color: #525252;
+  font-family: 'Ubuntu', sans-serif;
   padding-left: 0px;
   font-size: 16px;
 }

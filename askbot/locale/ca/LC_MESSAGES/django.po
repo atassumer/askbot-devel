@@ -4517,8 +4517,8 @@ msgid "Badges"
 msgstr "Insígnies"
 
 #: skins/default/templates/badges.html:7
-msgid "Community gives you awards for your questions, answers and votes."
-msgstr "La comunitat atorga premis a les seves preguntes, respostes i vots"
+msgid "The Elorus Q&A forum  gives you awards for your questions, answers and votes."
+msgstr "Elorus atorga premis a les seves preguntes, respostes i vots"
 
 #: skins/default/templates/badges.html:8
 #, fuzzy, python-format
