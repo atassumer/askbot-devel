@@ -59,9 +59,9 @@
         {% endif %}
     </div>
     {% if not request.user.is_authenticated() %}
-    <input type="submit" name="post_anon" value="{% trans %}Login/Signup to Post{% endtrans %}" class="submit" />
+    <input type="submit" class="btn btn-primary" name="post_anon" value="{% trans %}Login/Signup to Post{% endtrans %}" class="submit" />
     {% else %}
-    <input type="submit" name="post" value="{% trans %}Ask Your Question{% endtrans %}" class="submit" />
+    <input type="submit" class="btn btn-primary" name="post" value="{% trans %}Ask Your Question{% endtrans %}" class="submit" />
     {% endif %}
     <div class="clean"></div>
 </form>

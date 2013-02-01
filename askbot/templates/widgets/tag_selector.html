@@ -16,7 +16,7 @@
     #}
     <div class="inputs">
         <input id="interestingTagInput" autocomplete="off" type="text"/>
-        <input id="interestingTagAdd" type="submit" value="{% trans %}add{% endtrans %}"/>
+        <input id="interestingTagAdd" type="submit" class="btn" value="{% trans %}Add{% endtrans %}"/>
     </div>
     <h2>{% trans %}Ignored tags{% endtrans %}</h2>
     {{
@@ -33,7 +33,7 @@
     #}
     <div class="inputs">
         <input id="ignoredTagInput" autocomplete="off" type="text"/>
-        <input id="ignoredTagAdd" type="submit" value="{% trans %}add{% endtrans%}"/>
+        <input id="ignoredTagAdd" type="submit" class="btn" value="{% trans %}Add{% endtrans%}"/>
     </div>
     {% if settings.SUBSCRIBED_TAG_SELECTOR_ENABLED %}
         <h2>{% trans %}Subscribed tags{% endtrans %}</h2>

@@ -172,6 +172,7 @@ SearchDropMenu.prototype.createDom = function() {
         footer.addClass('footer');
         var button = this.makeElement('button');
         button.addClass('submit');
+        button.addClass('btn');
         button.html(gettext('Ask Your Question'))
         footer.append(button);
         var handler = this._askHandler;

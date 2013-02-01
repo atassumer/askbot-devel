@@ -1,8 +1,8 @@
 <!-- template secondary_header.html -->
 <div id="secondaryHeader">
-    <div class="container-fluid">
+    <div class="wrapper">
         {# form is wrapping search buttons and the search bar inputs #}
-        <form
+        <form class="form-inline"
             {% if active_tab == "tags" %}
                 action="{% url tags %}" 
             {% elif active_tab == "users" %}
@@ -11,7 +11,6 @@
                 action="{% url questions %}" id="searchForm"
             {% endif %}
             method="get">
-            <div>
                 {# 
                     Some or all contents of this div may be dropped
                     over the search bar via negative margins,
@@ -20,7 +19,6 @@
                     Search bar may have padding on the left and right
                     to accomodate the buttons.
                 #}
-                <a id="homeButton" href="{% url questions %}"></a>
                 {% include "widgets/scope_nav.html" %}            
                 {# 
                     three buttons below are in the opposite order because
@@ -38,7 +36,6 @@
                 />
                 {# clears button floats #}
                 <div class="clearfix"></div>
-            </div>
             {% include "widgets/search_bar.html" %} {# include search form widget #}
         </form>
     </div>
