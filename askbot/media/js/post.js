@@ -525,7 +525,7 @@ var Vote = function(){
     var voteContainerId = 'vote-buttons';
     var imgIdPrefixAccept = 'answer-img-accept-';
     var classPrefixFollow= 'button follow';
-    var classPrefixFollowed= 'button followed';
+    var classPrefixFollowed= 'btn btn-large btn-info';
     var imgIdPrefixQuestionVoteup = 'question-img-upvote-';
     var imgIdPrefixQuestionVotedown = 'question-img-downvote-';
     var imgIdPrefixAnswerVoteup = 'answer-img-upvote-';
@@ -844,7 +844,7 @@ var Vote = function(){
         else if(data.success == "1"){
             var followed_html = gettext('<div>Following</div><div class="unfollow">Unfollow</div>');
             object.html(followed_html);
-            object.attr("class", 'button followed');
+            object.attr("class", 'btn btn-large btn-info');
             var fav = getFavoriteNumber();
             var fmts = ngettext('%s follower', '%s followers', data.count);
             fav.text(interpolate(fmts, [data.count]));
