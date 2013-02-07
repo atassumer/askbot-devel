@@ -3329,11 +3329,26 @@ ins {
 /* ----- Footer links , check blocks/footer.html----- */
 #ground {
 	border-top: 1px solid #DDD;
-	padding: 5px 5px 0 5px;
+	padding: 5px;
 	font-size: 14px;
 }
 #ground p {
   margin-bottom: 0;
+}
+#ground .span8 {
+	padding-bottom: 15px;
+}
+.footer-text {
+	display: inline-block;
+	vertical-align: top;
+	margin-right: 10px;
+}
+.comodo-secure {
+	display: inline-block;
+	margin-top: -12px;
+	width: 96px;
+	height: 59px;
+	background: url(../images/elorus-comodo-secure.png) -8px 0;
 }
 .footer-links {
   color: #ddd;
@@ -3341,7 +3356,6 @@ ins {
   width: 450px;
   float: left;
 }
-
 .powered-link {
   width: 450px;
   float: left;
