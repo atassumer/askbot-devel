@@ -1,17 +1,17 @@
 {% extends 'one_column_body.html' %}
 
-{% block title %}{% spaceless %}{% trans %}Server error (code 500){% endtrans %}{% endspaceless %}{% endblock %}
+{% block title %}{% spaceless %}{% trans %}Permission denied (code 403){% endtrans %}{% endspaceless %}{% endblock %}
 
 {% block content %}			<div class="content-error">
 				<header class="page-header">
-					<h1 class="title">{% trans %}Server error{% endtrans %}</h1>
-					<strong>{% trans %}Oops! Something went wrong...{% endtrans %}</strong>
+					<h1 class="title">{% trans %}Permission denied{% endtrans %}</h1>
+					<strong>{% trans %}Do you feel like cheating today? :){% endtrans %}</strong>
 				</header>
 				<p class="alert alert-error">
 					<button type="button" class="close" data-dismiss="alert">×</button>
-					<strong>{% trans %}Error code 500:{% endtrans %}</strong> {% trans %}There was an error processing this page.{% endtrans %}
+					<strong>{% trans %}Error code 403:{% endtrans %}</strong> {% trans %}You have not sufficient rights to visit this page.{% endtrans %}
 				</p>
-				<p>{% trans %}The Elorus system administrators have been notified about this incident.<br/>If you feel this is an error on our party, please feel free to contact us.{% endtrans %}</p>
+				<p>{% trans %}The Elorus Q&A forum administrators have been notified about this incident.<br/>If you feel this is an error on our party, please let us know...{% endtrans %}</p>
 				<p class="add-top">
 					<a href="{% url 'index' %}" class="btn btn-primary"><i class="icon-home icon-white"></i> {% trans %}Elorus Q&A forum{% endtrans %}</a>
 					<a href="{% url 'feedback' %}" class="btn btn-danger"><i class="icon-envelope icon-white"></i> {% trans %}Tell us more{% endtrans %}</a>  

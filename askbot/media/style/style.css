@@ -4437,3 +4437,16 @@ textarea.tipped-input {
  display: inline-block;
  margin-left: 0 !important;
 }
+.content-error{
+	margin-bottom: 20px;
+}
+.content-error p{
+	font-size: 14px;
+}
+button.close {
+	padding: 0;
+	cursor: pointer;
+	background: transparent;
+	border: 0;
+	-webkit-appearance: none;
+}
