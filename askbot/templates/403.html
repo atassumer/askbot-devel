@@ -1,19 +1,289 @@
-{% extends 'one_column_body.html' %}
-
-{% block title %}{% spaceless %}{% trans %}Permission denied (code 403){% endtrans %}{% endspaceless %}{% endblock %}
-
-{% block content %}			<div class="content-error">
-				<header class="page-header">
-					<h1 class="title">{% trans %}Permission denied{% endtrans %}</h1>
-					<strong>{% trans %}Do you feel like cheating today? :){% endtrans %}</strong>
-				</header>
-				<p class="alert alert-error">
-					<button type="button" class="close" data-dismiss="alert">×</button>
-					<strong>{% trans %}Error code 403:{% endtrans %}</strong> {% trans %}You have not sufficient rights to visit this page.{% endtrans %}
-				</p>
-				<p>{% trans %}The Elorus Q&A forum administrators have been notified about this incident.<br/>If you feel this is an error on our party, please let us know...{% endtrans %}</p>
-				<p class="add-top">
-					<a href="{% url 'index' %}" class="btn btn-primary"><i class="icon-home icon-white"></i> {% trans %}Elorus Q&A forum{% endtrans %}</a>
-					<a href="{% url 'feedback' %}" class="btn btn-danger"><i class="icon-envelope icon-white"></i> {% trans %}Tell us more{% endtrans %}</a>  
-				</p>
-			</div>{% endblock %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Permission denied (code 403) - Elorus Q&amp;A forum</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        {% block meta_description %}
+        <meta name="description" content="Elorus Q&amp;A forum" />
+        {% endblock %}
+        <meta name="keywords" content="{%block keywords%}{%endblock%},Elorus,forum,community" />
+        {% if GOOGLE_SITEMAP_CODE %}
+        <meta name="google-site-verification" content="{{GOOGLE_SITEMAP_CODE}}" />
+        {% endif %}
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="shortcut icon" href="https://static.elorus.com/forum/media/elorus-favicon.ico" />
+        <link href="//fonts.googleapis.com/css?family=Ubuntu:300italic,300,700" rel="stylesheet" type="text/css">
+        <link 
+            rel="alternate"
+            type="application/rss+xml"
+            title="RSS feed from {{ site_title }}"
+            href="https://forum.elorus.com/feeds/rss/"
+        />
+        {% block before_css %}{% endblock %}
+         <link href="//static.elorus.com/forum/static/default/media/style/style.css?v=1" rel="stylesheet" type="text/css" /> 
+         <link href="//static.elorus.com/forum/static/default/media/bootstrap/css/bootstrap.css?v=1" rel="stylesheet" type="text/css" /> 
+         <link href='//fonts.googleapis.com/css?family=Open+Sans+Condensed:700&amp;subset=latin-ext' rel='stylesheet' type='text/css'> 
+         <link href='//fonts.googleapis.com/css?family=Open+Sans+Condensed:700&amp;subset=cyrillic-ext' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="//static.elorus.com/forum/static/default/media/js/modernizr.custom.js?v=1"></script> <script type="text/javascript" src="/jsi18n/"></script> <script type="text/javascript">
+		    var askbot = {};
+		    askbot['data'] = {};
+		    
+		        askbot['data']['userIsAuthenticated'] = true;
+		        askbot['data']['userId'] = 1;
+		        askbot['data']['userName'] = 'admin';
+		        askbot['data']['userIsAdminOrMod'] = true;
+		        askbot['data']['userIsAdmin'] = true;
+		        askbot['data']['userReputation'] = 1;
+		    
+		    askbot['data']['maxCommentLength'] = 300;
+		    askbot['urls'] = {};
+		    askbot['settings'] = {};
+		    askbot['settings']['editorType'] = 'markdown';
+		    
+		        askbot['settings']['allowedUploadFileTypes'] = [
+		            "jpg", "jpeg", "gif", "bmp", "png", "tiff"
+		        ];
+		    
+		    askbot['messages'] = {};
+		</script>
+    </head>
+    <body class="one-col{% if user_messages %} user-messages{% endif %}{% if page_class %} {{page_class}}{% endif %} lang-en">
+        {% include "widgets/system_messages.html" %}
+        {% if MULTILINGUAL %}
+            {% include "widgets/language_nav.html" %}
+        {% endif %}
+        {% include "custom_header.html" ignore missing %}
+        {% if CUSTOM_HEADER|trim != '' %}
+        <div id="custom-header">
+            {{CUSTOM_HEADER}}
+        </div>
+        {% endif %}
+        {% import "macros.html" as macros %}
+		<div id="header" class="{% if SHOW_LOGO %}with-logo{% else %}without-logo{% endif %}">
+		    <div class="container-fluid">
+		        <div id="userToolsNav">
+		        	<a class="brand" href="/questions/">
+						<i class="icon-globe icon-white"></i> Elorus Q&A forum
+					</a> | 
+					<a id="application-link" class="brand" href="https://app.elorus.com/" title="Elorus | eInvoicing &amp; Cash Flow Management Application">Elorus Application</a>
+					{% import "macros.html" as macros%}
+					<a id="navTags" href="{% url tags %}" {% if active_tab == 'tags' %}class="on"{% endif %}>
+						<i class="icon-tag icon-white"></i> {% trans %}tags{% endtrans %}</a>{% if GROUPS_ENABLED %}
+					<span class="dropdown">
+					<a id="navGroups" class='{% if active_tab == 'groups' %}"on"{% endif %}' href="{% url groups %}" data-target="#" >
+					  {% trans %}people & groups{% endtrans %}
+					</a>
+					</span>
+					{%else%}
+					<a 
+					  id="navUsers"
+					  href="{% url users %}"
+					  {% if active_tab == 'users' %}class="on"{% endif %}
+					><i class="icon-user icon-white"></i> {% trans %}users{% endtrans %}</a>
+					{% endif %}
+					<a 
+					  id="navBadges"
+					  href="{% url badges %}"
+					  {% if active_tab == 'badges' %}class="on"{% endif %}
+					><i class="icon-cog icon-white"></i> {% trans %}badges{% endtrans %}</a>
+		        </div>
+		        {% if SHOW_LOGO %}
+		            {% include "widgets/logo.html" %}
+		        {% endif %}
+		        <div id="metaNav">
+		        	<a class="help" href="{% url "help" %}" title="{% trans %}help{% endtrans %}">{% trans %}help{% endtrans %}</a>
+		        </div>
+		        <div class="clean"></div>
+		    </div>
+		</div>
+        <div id="secondaryHeader">
+		    <div class="wrapper">
+		        {# form is wrapping search buttons and the search bar inputs #}
+		        <form class="form-inline"
+		            {% if active_tab == "tags" %}
+		                action="{% url tags %}" 
+		            {% elif active_tab == "users" %}
+		                action="" 
+		            {% else %}
+		                action="{% url questions %}" id="searchForm"
+		            {% endif %}
+		            method="get">
+		                {# 
+		                    Some or all contents of this div may be dropped
+		                    over the search bar via negative margins,
+		                    to make sure that the search bar can occupy 100%
+		                    of the content width.
+		                    Search bar may have padding on the left and right
+		                    to accomodate the buttons.
+		                #}
+		                {% if active_tab != "ask" %}
+						    {% if not search_state %}  {#  get empty SearchState() if there's none #}
+						        {% set search_state=search_state|get_empty_search_state %}
+						    {% endif %}
+						    <a class="scope-selector {% if scope == 'all' %}on{% endif %}"
+						        href="{{ search_state.change_scope('all').full_url() }}" title="{% trans %}see all questions{% endtrans %}">{% trans %}ALL{% endtrans %}</a><a class="scope-selector {% if scope == 'unanswered' %}on{% endif %}"
+						        href="{{ search_state.change_scope('unanswered').change_sort('answers-asc').full_url() }}" title="{% trans %}see unanswered questions{% endtrans %}">{% trans %}UNANSWERED{% endtrans %}</a>
+						        
+						{% else %}
+						    <div class="scope-selector ask-message">{% trans %}Please ask your question here{% endtrans %}</div>
+						{% endif %}            
+		                {# 
+		                    three buttons below are in the opposite order because
+		                    they are floated at the right
+		                #}
+		                {% include "widgets/ask_button.html" %}            
+		                <input type="submit" value="" name="search" class="searchBtn" />
+		                <input type="button"
+		                    value="X"
+		                    name="reset_query"
+		                    class="cancelSearchBtn"
+		                    {% if not query %}{# query is only defined by questions view (active_tab) #}
+		                        style="display: none;"
+		                    {% endif %}
+		                />
+		                {# clears button floats #}
+		                <div class="clearfix"></div>
+		            {% include "widgets/search_bar.html" %} {# include search form widget #}
+		        </form>
+		    </div>
+		</div> {# Scope selector, search input and ask button #}
+        {% if ENABLE_LEADING_SIDEBAR %}
+        <div id="leading-sidebar">
+            {{ LEADING_SIDEBAR }}
+        </div>
+        {% endif %}
+	    <div class="content-wrapper">
+	    	<div id="ContentFull">
+	            <div class="content-error">
+					<header class="page-header">
+						<h1 class="title">{% trans %}Permission denied{% endtrans %}</h1>
+						<strong>{% trans %}Do you feel like cheating today? :){% endtrans %}</strong>
+					</header>
+					<p class="alert alert-error">
+						<button type="button" class="close" data-dismiss="alert">×</button>
+						<strong>{% trans %}Error code 403:{% endtrans %}</strong> {% trans %}You have not sufficient rights to visit this page.{% endtrans %}
+					</p>
+					<p>{% trans %}The Elorus Q&A forum administrators have been notified about this incident.<br/>If you feel this is an error on our party, please let us know...{% endtrans %}</p>
+					<p class="add-top">
+						<a href="{% url 'index' %}" class="btn btn-primary"><i class="icon-home icon-white"></i> {% trans %}Elorus Q&A forum{% endtrans %}</a>
+						<a href="{% url 'feedback' %}" class="btn btn-danger"><i class="icon-envelope icon-white"></i> {% trans %}Tell us more{% endtrans %}</a>  
+					</p>
+				</div>
+	        </div>
+        </div>
+        {% include "widgets/footer.html" %}
+        {% include "custom_footer.html" ignore missing %}
+	        <noscript class="noscript">
+	        Please note: Elorus Q&A forum requires javascript to work properly, please enable javascript in your browser, <a href="https://www.google.com/support/bin/answer.py?answer=23852">here is how</a> </noscript> <script type="text/javascript">
+	        //IE fix to hide the red margin
+	        var noscript = document.getElementsByTagName('noscript')[0];
+	        noscript.style.padding = '0px';
+	        noscript.style.backgroundColor = 'transparent';
+	    </script> </div> <script type="text/javascript">
+	    var i18nLang = 'en';
+	    var scriptUrl = '/'
+	    var askbotSkin = 'default';
+	    var enableMathJax = false;
+	    askbot['urls']['mark_read_message'] = '/messages/markread/';
+	    askbot['urls']['get_tags_by_wildcard'] = '/get-tags-by-wildcard/';
+	    askbot['urls']['get_tag_list'] = '/get-tag-list/';
+	    askbot['urls']['follow_user'] = '/followit/follow/user/{{userId}}/';
+	    askbot['urls']['unfollow_user'] = '/followit/unfollow/user/{{userId}}/';
+	    askbot['urls']['user_signin'] = '/accounts/login/';
+	    askbot['urls']['getEditor'] = '/get-editor/';
+	    askbot['urls']['titleSearch'] = '/api/title_search/';
+	    askbot['urls']['ask'] = '/questions/ask/';
+		askbot['urls']['questions'] = '/questions/';
+	    askbot['settings']['static_url'] = '//static.elorus.com/forum/static/';
+	    askbot['settings']['minSearchWordLength'] = 4;
+	</script> <script 
+	    type="text/javascript"
+	    
+	        src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"
+	    
+	></script> <script type="text/javascript" src='//static.elorus.com/forum/static/default/media/bootstrap/js/bootstrap.js?v=1'></script> <!-- History.js --> <script type='text/javascript' src="//static.elorus.com/forum/static/default/media/js/jquery.history.js?v=1"></script> <script type='text/javascript' src="//static.elorus.com/forum/static/default/media/js/utils.js?v=1"></script> <script type="text/javascript" src="//static.elorus.com/forum/static/default/media/js/live_search.js?v=1"></script> <script type="text/javascript">
+	    /*<![CDATA[*/
+	    $(document).ready(function(){
+	        // focus input on the search bar endcomment
+	        
+	            var searchInput = $('#keywords');
+	        
+	
+	        if (searchInput) {
+	            searchInput.focus();
+	            putCursorAtEnd(searchInput);
+	        }
+	        
+	        
+	        if (searchInput) {
+	            var search = new FullTextSearch();
+	            askbot['controllers'] = askbot['controllers'] || {};
+	            askbot['controllers']['fullTextSearch'] = search;
+	            
+	                search.setSearchUrl('scope:all/sort:activity\u002Ddesc/page:1/');
+	            
+	            
+	            search.decorate(searchInput);
+	        }
+	        
+	
+	        if (askbot['data']['userIsAdminOrMod']) {
+	            $('body').addClass('admin');
+	        }
+	        
+	    });
+	
+	    $('abbr.timeago').timeago();
+	    /*]]>*/
+	</script> <script type="text/javascript">
+	    /*<![CDATA[*/
+	    askbot['settings']['showSortByRelevance'] = false;
+	    $(document).ready(function(){
+	        /*var on_tab = '#nav_questions';
+	        $(on_tab).attr('className','on');*/
+	        Hilite.exact = false;
+	        Hilite.elementid = "question-list";
+	        Hilite.debug_referrer = location.href;
+	        
+	    });
+	
+	    askbot['urls']['mark_interesting_tag'] = '/mark-tag/interesting/';
+	    askbot['urls']['mark_ignored_tag'] = '/mark-tag/ignored/';
+	    askbot['urls']['mark_subscribed_tag'] = '/mark-tag/subscribed/';
+	    askbot['urls']['unmark_tag'] = '/unmark-tag/';
+	    askbot['urls']['set_tag_filter_strategy'] = '/set-tag-filter-strategy/';
+	
+	    if (Modernizr.history) {
+	        // history management works!
+	    } else {
+	        // no history support :(
+	        //hash = unescape(window.location.hash).replace('#','').split("?")[0]
+	        
+	        var hash = History.unescapeHash(window.location.hash).replace('#','').split("?")[0];
+	        var questions_url = askbot['urls']['questions'];
+	        if (hash.substring(0, questions_url.length) === questions_url) {
+	            var url = hash;
+	        } else {
+	            var url = questions_url + hash;
+	        }
+	        if (hash !== '' && hash !== undefined && url !== undefined){
+	            
+	            window.location = document.location.protocol + '//' + window.location.host + url;
+	        }
+	    }
+	    /*]]>*/
+	</script> 
+		<script type='text/javascript' src='//static.elorus.com/forum/static/default/media/js/editor.js?v=1'></script> <script type='text/javascript' src='//static.elorus.com/forum/static/default/media/js/tag_selector.js?v=1'></script> <script type="text/javascript">
+            for (url_name in askbot['urls']){
+                askbot['urls'][url_name] = cleanUrl(askbot['urls'][url_name]);
+            }
+        </script>
+        {% block endjs %}
+        {% endblock %}
+        <script type="text/javascript">
+            for (url_name in askbot['urls']){
+                askbot['urls'][url_name] = cleanUrl(askbot['urls'][url_name]);
+            }
+        </script>
+    </body>
+</html>

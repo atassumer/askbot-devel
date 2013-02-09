@@ -4450,3 +4450,7 @@ button.close {
 	border: 0;
 	-webkit-appearance: none;
 }
+#application-link{
+	margin-left: 0px !important;
+	padding-left: 0px !important;
+}
