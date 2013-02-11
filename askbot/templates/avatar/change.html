@@ -14,11 +14,11 @@
             <ul>
                 {{ primary_avatar_form.as_ul() }}
             </ul>
-            <p><input type="submit" value="{% trans %}Choose new Default{% endtrans %}" /></p>
+            <p><input class="btn btn-primary" type="submit" value="{% trans %}Choose new Default{% endtrans %}" /></p>
         </form>
     {% endif %}
     <form enctype="multipart/form-data" method="POST" action="{% url avatar_add %}">{% csrf_token %}
         {{ upload_avatar_form.as_p() }}
-        <p><input type="submit" value="{% trans %}Upload{% endtrans %}" /></p>
+        <p><input class="btn btn-primary" type="submit" value="{% trans %}Upload{% endtrans %}" /></p>
     </form>
 {% endblock %}

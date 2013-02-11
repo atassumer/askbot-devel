@@ -1560,6 +1560,7 @@ ul#related-tags li {
   line-height: 1.4;
 }
 #askFormBar .questionTitleInput {
+  border-radius: 4px;
   font-size: 24px;
   height: 36px;
   line-height: 36px;
@@ -1616,6 +1617,7 @@ ul#related-tags li {
 }
 .ask-page #id_tags,
 .edit-question-page #id_tags {
+  border-radius: 4px;
   box-sizing: border-box;
   border: #cce6ec 3px solid;
   padding-left: 5px;
@@ -1826,6 +1828,7 @@ ul#related-tags li {
 
 
 .wmd-container {
+  border-radius: 4px;
   border: #cce6ec 3px solid;
   min-height: 250px;
 }
@@ -2728,6 +2731,7 @@ ul#related-tags li {
 .users-page select,
 .user-profile-edit-page select,
 .user-profile-page select {
+  border-radius: 4px;
   border: #cce6ec 3px solid;
   height: 25px;
   line-height: 25px;
@@ -2748,6 +2752,7 @@ ul#related-tags li {
 .users-page textarea,
 .user-profile-edit-page textarea,
 .user-profile-page textarea {
+  border-radius: 4px;
   border: #cce6ec 3px solid;
   padding-left: 5px;
   padding-top: 5px;
