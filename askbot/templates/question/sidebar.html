@@ -34,7 +34,7 @@
                 checked="checked"
             {% endif %}
         />
-        <label for="question-subscribe-sidebar">{% trans %}email the updates{% endtrans %}</label>
+        {% comment %}<label for="question-subscribe-sidebar">{% trans %}email the updates{% endtrans %}</label>{% endcomment %}
         {%else%}
         <input type="checkbox" id="question-subscribe-sidebar"/>
         <label for="question-subscribe-sidebar">{% trans %}<strong>Here</strong> (once you log in) you will be able to sign up for the periodic email updates about this question.{% endtrans %}</label>
