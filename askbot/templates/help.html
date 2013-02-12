@@ -1,14 +1,14 @@
 {% extends "two_column_body.html" %}
 {% block title %}{% trans %}Help{% endtrans %}{% endblock %}
 {% block content %}
-<h1 class='section-title'>{% trans %}Help{% endtrans %}</h1>
-<p>
+<h1>{% trans %}Help{% endtrans %}</h1>
+<h2>
     {% if request.user.is_authenticated() %}
         {% trans username = request.user.username|escape %}Welcome {{username}},{% endtrans %}
     {% else %}
         {% trans %}Welcome,{% endtrans %}
     {% endif %}
-</p>
+</h2>
 <p>
     {% trans %}Thank you for using {{app_name}}, here is how it works.{% endtrans %}
 </p>
@@ -53,5 +53,4 @@
     {% trans %}You can @mention users anywhere in the text to point their attention,
     follow users and conversations and report inappropriate content by flagging it.{% endtrans %}
 </p>
-<p>{% trans %}Enjoy.{% endtrans %}</p>
 {% endblock %}
