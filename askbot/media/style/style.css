@@ -4462,3 +4462,17 @@ button.close {
 .help{
 	margin-left: 0!important;
 }
+#intro-text{
+	margin-bottom: 25px;
+}
+p .firstdrop {
+	font-size: 2.15em;
+	float: left;
+	height: auto;
+	line-height: 1.15em;
+	padding: 3px 7px 2px 7px;
+	width: auto;
+	font-weight: bold;
+	background-color: #CCC;
+	margin-right: 7px;
+}
