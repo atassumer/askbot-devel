@@ -207,10 +207,10 @@ body.user-messages {
 /* ----- Notify message bar , check blocks/system_messages.html ----- */
 .notify {
   position: fixed;
-  top: 0px;
+  top: 60px;
   left: 0px;
   width: 100%;
-  z-index: 100;
+  z-index: 10004;
   padding: 0;
   text-align: center;
   background-color: #f5dd69;
